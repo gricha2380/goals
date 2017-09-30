@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1059px" height="528px" viewBox="0 0 1059 528" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>mountain copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" offset="0%"></stop>
+            <stop stop-color="#41403E" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Goals" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g transform="translate(-72.000000, -8013.000000)" id="Community-Goals" fill="url(#linearGradient-1)">
+            <g transform="translate(-434.000000, 7743.000000)">
+                <g id="Head">
+                    <g id="mountains" transform="translate(0.000000, 270.000000)">
+                        <g id="mountain" transform="translate(505.000000, 0.000000)" opacity="0.8">
+                            <polygon id="Path-2" points="190 343 532.584296 0.415703804 1059.75332 527.584724 0.50389578 527.584724"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
