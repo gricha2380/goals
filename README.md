@@ -1,0 +1,2 @@
+# goals
+Local storage project
