@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3115px" height="784px" viewBox="0 0 3115 784" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>mountainRange</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" offset="0%"></stop>
+            <stop stop-color="#41403E" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="mountainRange" fill="url(#linearGradient-1)">
+            <g id="mountains">
+                <g id="mountain" transform="translate(345.000000, 90.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="190 343 532.584296 0.415703804 1059.75332 527.584724 0.50389578 527.584724"></polygon>
+                </g>
+                <g id="mountain" transform="translate(505.000000, 0.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="190 343 532.584296 0.415703804 1059.75332 527.584724 0.50389578 527.584724"></polygon>
+                </g>
+                <g id="mountain" transform="translate(215.000000, 130.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="190 343 532.584296 0.415703804 1059.75332 527.584724 0.50389578 527.584724"></polygon>
+                </g>
+                <g id="mountain" transform="translate(0.000000, 184.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="215.990566 389.772727 605.437808 0.472390687 1204.71957 599.528096 0.57282492 599.528096"></polygon>
+                </g>
+            </g>
+            <g id="mountains" transform="translate(2332.500000, 392.000000) scale(-1, 1) translate(-2332.500000, -392.000000) translate(1550.000000, 0.000000)">
+                <g id="mountain" transform="translate(345.000000, 90.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="190 343 532.584296 0.415703804 1059.75332 527.584724 0.50389578 527.584724"></polygon>
+                </g>
+                <g id="mountain" transform="translate(505.000000, 0.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="190 343 532.584296 0.415703804 1059.75332 527.584724 0.50389578 527.584724"></polygon>
+                </g>
+                <g id="mountain" transform="translate(215.000000, 130.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="190 343 532.584296 0.415703804 1059.75332 527.584724 0.50389578 527.584724"></polygon>
+                </g>
+                <g id="mountain" transform="translate(0.000000, 184.000000)" opacity="0.8">
+                    <polygon id="Path-2" points="215.990566 389.772727 605.437808 0.472390687 1204.71957 599.528096 0.57282492 599.528096"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

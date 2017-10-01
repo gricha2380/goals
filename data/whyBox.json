@@ -1,0 +1,7 @@
+{
+  "close" : ["<span class='close'>Close</span>"],
+  "title" : ["About this project"],
+  "description" : ["This project..."],
+  "source" : ["<a href='http://github.com'>View project Repo</a>"],
+  "me" : ["<span class='aboutMe'>About Me</span>","<div class='aboutBlock'>Gregor is...</div>"]
+}

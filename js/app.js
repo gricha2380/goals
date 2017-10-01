@@ -8,3 +8,17 @@ Things to do:
 	* 'My Goals' will use local storage
 	* Field validation for 'Send' button via event handler
 */
+document.addEventListener('DOMContentLoaded', function(event) {
+  var showWhyBox = false;
+  console.log('DOM fully loaded and parsed');
+  document.querySelector('nav a').addEventListener('click', function(){
+    console.log('clicked');
+    if (!showWhyBox) {
+      var newDiv = document.createElement('div');
+      newDiv.setAttribute('id', 'whyBox');
+      document.querySelector('body').appendChild(newDiv);
+      showWhyBox = true;
+    }
+
+  });
+});

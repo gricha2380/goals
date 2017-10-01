@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2247px" height="883px" viewBox="0 0 2247 883" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Path 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" offset="0%"></stop>
+            <stop stop-color="#41403E" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-2" points="413 428.813174 531.541621 319.229964 570.689094 358.39194 601.514314 327.555301 675.301868 401.37019 740.273531 336.374458 783.008962 379.125719 859.204575 302.901879 902.192133 345.905361 988.280767 259.784836 1084.30081 355.840448 1134.53295 305.589692 1201.36482 372.446317 1289.21473 284.563862 1321.1856 316.546576 1382.75752 254.951849 1466.19474 338.419974 1533.96222 270.627385 1574.1327 310.812743 1639.92107 245 1730.32893 335.441354 1786.58551 279.16393 1858.0363 350.641189 1904.03081 304.629646 1973.00362 373.628011 2060.38078 286.218482 2137.10811 362.974239 2187.80323 312.260342 2220.27177 344.740907 2274.50782 290.484765 2336.76735 352.767361 2388.75685 300.758602 2418.5059 330.518677 2474.46868 274.535168 2548.75722 348.851234 2590.43305 307.15997 2631.52732 348.269466 2691 288.774754 2691 1128 422.996886 1128"></polygon>
+    </defs>
+    <g id="Goals" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.213881341">
+        <g transform="translate(0.000000, -245.000000)" id="Head">
+            <g transform="translate(-413.000000, 0.000000)">
+                <g id="Path-2">
+                    <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <use fill="#3F677D" xlink:href="#path-2"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

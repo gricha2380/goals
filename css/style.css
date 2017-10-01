@@ -1,5 +1,7 @@
 body {
-  background: linear-gradient(#919B9D, #41403E) #41403E no-repeat;
+  /*background: url('../img/bgRange.svg') #919B9D no-repeat 50% 138px;*/
+  background: #919B9D;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
   letter-spacing: .05em;
@@ -23,7 +25,27 @@ h1 {
   color: #95CFE9;
   text-align: center;
 }
-
+nav {
+  margin-bottom: 8em;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: .8em;
+  text-align: center;
+}
+.bodyInner {
+  background: #41403E;
+  background-image: url('../img/mountainRange.svg'); /* fallback */
+  background-image: url('../img/mountainRange.svg'), linear-gradient(#919B9D, #41403E);
+  background-position: 50% 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.heroTitle {
+  font-size: 4em;
+  margin: 3em;
+  font-weight: normal;
+  color: white;
+  text-shadow: 1px 1px #000;
+}
 .container {
   max-width: 900px;
   margin: auto;
@@ -31,6 +53,7 @@ h1 {
 
 .inputForm {
   max-width: 600px;
+  margin: 2em auto;
 }
 
 .inputForm input, .inputForm textarea {
@@ -64,7 +87,11 @@ h1 {
 .goalUnit {
   color: black;
   background: white;
-  padding: 10px;
+  padding: 20px;
+}
+
+.goalUnit:nth-of-type(odd) {
+  background: #D5D5D5;
 }
 
 .date {
@@ -74,4 +101,24 @@ h1 {
 .name {
   font-style: italic;
   float: right;
+}
+.goalFilters {
+  color: #DFBA8B;
+}
+.goalFilters span {
+  float: right;
+  margin-left: 1em;
+}
+.goalFilters .goalsPosted {
+  margin-left: 0;
+  float: none;
+}
+
+#whyBox {
+  position: absolute;
+  top: 0;
+  width: 500px;
+  height: 500px;
+  background: rgba(0, 0, 0, 0.72);
+  color: white;
 }
