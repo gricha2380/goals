@@ -10,15 +10,21 @@ body {
   height: 100vh;
   color: white;
 }
-body+#whyBox {
+
+body.modal {
   overflow: hidden;
 }
+
 button {
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
   letter-spacing: .05em;
   word-spacing: .02em;
   background: #DFBA8B;
+}
+button:hover {
+  background: #c3a278; // gold hover color
+  cursor: pointer;
 }
 label {
   color: #DFBA8B;
@@ -81,12 +87,14 @@ nav a:hover {
   width: 100%;
   font-size: 14px;
 }
+
 .inline {
   display: inline-block;
   width: 49%;
   vertical-align: bottom;
   /*padding-left: 1em;*/
 }
+
 .fieldGroup.inline:nth-of-type(3) {
   padding-left: 0.4em;
 }
@@ -123,7 +131,7 @@ nav a:hover {
 
 #whyBox {
   top: 20%;
-  position: absolute;
+  position: fixed;
   left: 50%;
 }
 #whyBox .inner {
@@ -161,7 +169,7 @@ nav a:hover {
 
 .close:hover {
   cursor: pointer;
-  color: #c3a278;
+  color: #c3a278; // gold hover color
 }
 .container {
   z-index: 4;
