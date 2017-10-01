@@ -12,16 +12,26 @@ document.addEventListener('DOMContentLoaded', function(event) {
   var showWhyBox = false;
   console.log('DOM fully loaded and parsed');
 
-  function processJson(jsonData) {
-    console.log('building table data, sir');
-    var html = '';
-    for (var e in jsonData) {
-      for (var i = 0; i < jsonData[e].length; i++) {
-        html += jsonData[e][i];
-        console.log(html);
+
+  function makeNewDiv(jsonData, idName) {
+    // parse json first
+    function processJson(jsonData) {
+      console.log('reading JSON, sir');
+      var html = '';
+      for (var e in jsonData) {
+        for (var i = 0; i < jsonData[e].length; i++) {
+          html += jsonData[e][i];
+          console.log(html);
+        }
       }
+      return html;
     }
-    return html;
+
+    console.log('building new div, sir');
+    var newDiv = document.createElement('div');
+    newDiv.setAttribute('id', idName);
+    newDiv.innerHTML = processJson(jsonData);
+    document.querySelector('body').appendChild(newDiv);
   }
 
   document.querySelector('nav a').addEventListener('click', function(){
@@ -36,10 +46,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
         if (this.readyState == 4 && this.status == 200) {
           var whyBoxData = JSON.parse(this.responseText);
           // makeDiv(whyBoxData);
-          var newDiv = document.createElement('div');
-          newDiv.setAttribute('id', 'whyBox');
-          newDiv.innerHTML = processJson(whyBoxData);
-          document.querySelector('body').appendChild(newDiv);
+          // var newDiv = document.createElement('div');
+          // newDiv.setAttribute('id', 'whyBox');
+          // newDiv.innerHTML = processJson(whyBoxData);
+          // document.querySelector('body').appendChild(newDiv);
+          makeNewDiv(whyBoxData,'whyBox');
           showWhyBox = true;
         } else {
           console.log('no data');
