@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     if (!showWhyBox) {
       console.log('clicked');
       var xmlhttp = new XMLHttpRequest();
-      var url = '../data/whyBox.json';
+      var url = '/data/whyBox.json';
 
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
