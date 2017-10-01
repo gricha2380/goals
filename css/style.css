@@ -103,6 +103,7 @@ nav a:hover {
   color: black;
   background: white;
   padding: 20px;
+  min-height: 95px;
 }
 
 .goalUnit:nth-of-type(odd) {
@@ -129,6 +130,16 @@ nav a:hover {
   float: none;
 }
 
+.goalsPosted {
+  display: inline-block;
+}
+
+.feedback {
+  min-height: 24px;
+  text-align: center;
+  color: #95CFE9;
+  margin-top: 5px;
+}
 #whyBox {
   top: 20%;
   position: fixed;
@@ -177,4 +188,9 @@ nav a:hover {
 .title {
   color: #95CFE9;
   margin-top: 20px;
+}
+
+.goalBody {
+  max-height: 300px;
+  overflow: scroll;
 }

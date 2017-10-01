@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   // otherwise make a blank array
   else {
     console.log('No local storage, starting fresh.');
+    document.querySelector('.goalCount').innerHTML = '0';
     goalArray = [];
   }
 
@@ -98,16 +99,32 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   // When the send button is pressed
   document.querySelector('.send').addEventListener('click', function(event){
-    // grab values from input fields, save to array
-    goalArray.push({
-      'goal':document.querySelector('#yourGoal').value,
-      'author':document.querySelector('#userName').value});
+    // yell at user if goal is blank
+    console.log(document.querySelector('#yourGoal').value,'value of goal');
+    if (document.querySelector('#yourGoal').value=='') {
+      feedbackMessage('Please type a goal before sending');
+    }
+    // if goal is provided, capture values
+    else {
+      // if no name is provided, use Annonymous as value
+      if (document.querySelector('#userName').value=='') {
+        goalArray.push({
+          'goal':document.querySelector('#yourGoal').value,
+          'author':'Annonymous'});
+      } else {
+        // grab values from input fields, save to array
+        goalArray.push({
+          'goal':document.querySelector('#yourGoal').value,
+          'author':document.querySelector('#userName').value});
+      }
 
-    // send array to localStorage function
-    saveLocalStorage(goalArray);
-    document.querySelector('#yourGoal').value = '';
-    document.querySelector('#userName').value = '';
-    alert('thanks for subitting');
+      // send array to localStorage function
+      saveLocalStorage(goalArray);
+      document.querySelector('#yourGoal').value = '';
+      document.querySelector('#userName').value = '';
+      feedbackMessage('Thanks for subitting!');
+      populateGoals();
+    } // end capture value else statement
   }); // end send button event listener
 
   // save the string
@@ -124,7 +141,34 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
 
   function populateGoals() {
+    //console.log(goalArray);
+    var goalUnit = ['<div class=\'goalUnit\'>','</div>'];
+    var goalDiv = ['<div class=\'goal\'>','</div>'];
+    var goalDate = ['<div class=\'date\'>','</div>'];
+    var goalName = ['<div class=\'name\'>','</div>'];
+    for (var e in goalArray) {
+      document.querySelector('.goalBody').innerHTML +=
+        goalUnit[0]+goalDiv[0]+goalArray[e]['goal']+goalDiv[1]
+        +goalDate[0]+goalArray[e]['date']+goalDate[1]
+        +goalName[0]+goalArray[e]['author']+goalName[1]+goalUnit[1];
+    }
+    // set goal counter to current goal total
+    if (goalArray.length>1) {
+      document.querySelector('.goalCount').innerHTML = goalArray.length;
+    } else {
+      console.log(goalArray.length);
+      document.querySelector('.goalCount').innerHTML = '0';
+    }
 
   }
+
+  function feedbackMessage(message) {
+    document.querySelector('.feedback').innerHTML = message;
+    setTimeout(function() {
+    //console.log('delay before hiding');
+      document.querySelector('.feedback').innerHTML = '';
+    }, 3000);
+  }
+
 
 }); // end document ready
