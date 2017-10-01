@@ -1,3 +1,77 @@
 body {
-  background: linear-gradient('#919B9D', '#41403E');
+  background: linear-gradient(#919B9D, #41403E) #41403E no-repeat;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  letter-spacing: .05em;
+  word-spacing: .02em;
+  line-height: 1.5em;
+  height: 100vh;
+  color: white;
+}
+button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  letter-spacing: .05em;
+  word-spacing: .02em;
+  background: #DFBA8B;
+}
+label {
+  color: #DFBA8B;
+  display: block;
+}
+h1 {
+  color: #95CFE9;
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.inputForm {
+  max-width: 600px;
+}
+
+.inputForm input, .inputForm textarea {
+  width: calc(100% - 4px);
+  border: none;
+  padding: 5px 2px;
+}
+
+.inputForm input {
+  height: 2em;
+}
+
+.send {
+  height: 32px;
+  color: white;
+  padding: 2px;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+}
+.inline {
+  display: inline-block;
+  width: 49%;
+  vertical-align: bottom;
+  /*padding-left: 1em;*/
+}
+.fieldGroup.inline:nth-of-type(3) {
+  padding-left: 0.4em;
+}
+
+.goalUnit {
+  color: black;
+  background: white;
+  padding: 10px;
+}
+
+.date {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.name {
+  font-style: italic;
+  float: right;
 }

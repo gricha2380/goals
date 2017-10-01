@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>What Are Your Goals?</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/app.js"></script>
   </head>
@@ -10,29 +11,46 @@
     <nav>
       <a>Why?</a>
     </nav>
-    <h1 class="mainTitle">What are your goals?</h1>
-    <div class="description">
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
-    </div>
-    <div class="inputForm">
-      <div class="fieldGroup">
-        <label for="userName">Your Name</label>
-        <input type="text" id="userName">
+    <div class="container">
+      <h1 class="mainTitle">What are your goals?</h1>
+      <div class="description">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
       </div>
-      <div class="fieldGroup">
-        <label for="yourGoal">Your Goal</label>
-        <textarea id="yourGoal"></textarea>
+      <div class="inputForm">
+        <div class="fieldGroup">
+          <label for="yourGoal">Your Goal</label>
+          <textarea id="yourGoal"></textarea>
+        </div>
+        <div class="fieldGroup inline">
+          <label for="userName">Your Name (optional)</label>
+          <input type="text" id="userName">
+        </div>
+        <div class="fieldGroup inline">
+          <button class="send">Send</button>
+        </div>
       </div>
-      <button>Send</button>
-    </div>
-    <div class="goalList">
-      <div>
-        <span class="myGoals">My Goals</span>
-        <span class="defaultGoals">Default Goals</span>
-        <span class="allGoals">All</span>
-      </div>
-      <div class="goalBody">
-
+      <div class="goalList">
+        <div>
+          <span class="myGoals">My Goals</span>
+          <span class="defaultGoals">Default Goals</span>
+          <span class="allGoals">All</span>
+        </div>
+        <div class="goalBody">
+          <div class="goalUnit">
+            <div class="goal">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
+            </div>
+            <span class="date">Dec 25, 2017</span>
+            <span class="name">Annonymous</span>
+          </div>
+          <div class="goalUnit">
+            <div class="goal">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque.
+            </div>
+            <span class="date">Dec 25, 2017</span>
+            <span class="name">Annonymous</span>
+          </div>
+        </div>
       </div>
     </div>
   </body>
