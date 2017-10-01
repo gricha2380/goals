@@ -116,9 +116,32 @@ nav {
 
 #whyBox {
   position: absolute;
-  top: 0;
+  padding: 20px;
+  left: calc(50% - 250px);
+  top: 20px;
+  height: 300px;
   width: 500px;
-  height: 500px;
   background: rgba(0, 0, 0, 0.72);
   color: white;
+}
+#whyBox::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(251, 15, 15, 0.45);
+  height: 100%;
+  left: 0;
+  z-index: -2;
+}
+.close {
+  float: right;
+  color: #DFBA8B;
+  margin-top: -15px;
+  margin-right: -10px;
+}
+
+.close:hover {
+  cursor: pointer;
+  color: #c3a278;
 }

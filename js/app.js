@@ -34,6 +34,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.querySelector('body').appendChild(newDiv);
   }
 
+  document.querySelector('.close').addEventListener('click', function(event) {
+    showWhyBox = false;
+    document.querySelector('#whyBox').removeChild();
+  });
+  
   document.querySelector('nav a').addEventListener('click', function(){
 
 
@@ -61,14 +66,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
   }); // end onclick
-
-  function makeDiv(divData) {
-    var newDiv = document.createElement('div');
-    newDiv.setAttribute('id', 'whyBox');
-    document.querySelector('body').appendChild(newDiv);
-    showWhyBox = true;
-    return divData;
-  }
 
 
 }); // end document ready
