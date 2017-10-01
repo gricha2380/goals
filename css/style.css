@@ -10,6 +10,9 @@ body {
   height: 100vh;
   color: white;
 }
+body+#whyBox {
+  overflow: hidden;
+}
 button {
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
@@ -30,6 +33,10 @@ nav {
   color: rgba(255, 255, 255, 0.5);
   font-size: .8em;
   text-align: center;
+}
+nav a:hover {
+  color: white;
+  cursor: pointer;
 }
 .bodyInner {
   background: #41403E;
@@ -115,6 +122,11 @@ nav {
 }
 
 #whyBox {
+  top: 20%;
+  position: absolute;
+  left: 50%;
+}
+#whyBox .inner {
   position: absolute;
   padding: 20px;
   left: calc(50% - 250px);
@@ -123,16 +135,22 @@ nav {
   width: 500px;
   background: rgba(0, 0, 0, 0.72);
   color: white;
+  z-index: 1;
 }
 #whyBox::after {
   content: '';
   position: fixed;
+  /*position: absolute;*/
   top: 0;
   width: 100%;
-  background: rgba(251, 15, 15, 0.45);
+  background: rgba(150, 157, 167, 0.77);
   height: 100%;
   left: 0;
-  z-index: -2;
+  bottom: 0;
+  right: 0;
+}
+#whyBox a {
+  color: #DFBA8B;
 }
 .close {
   float: right;
@@ -144,4 +162,11 @@ nav {
 .close:hover {
   cursor: pointer;
   color: #c3a278;
+}
+.container {
+  z-index: 4;
+}
+.title {
+  color: #95CFE9;
+  margin-top: 20px;
 }

@@ -1,7 +1,7 @@
 {
   "close" : ["<span class='close'>Close</span>"],
-  "title" : ["<div class='aboutProject'>About this project</div>"],
+  "title" : ["<div class='aboutProject title'>About this Project</div>"],
   "description" : ["<div class='projectContent'>This project...</div>"],
-  "source" : ["<a href='http://github.com'>View project Repo</a>"],
-  "me" : ["<span class='aboutMe'>About Me</span>","<div class='aboutBlock'>Gregor is...</div>"]
+  "source" : ["<a href='https://github.com/gricha2380/goals' target='_blank'>View Project Repo</a>"],
+  "me" : ["<div class='aboutMe title'>About Me</div>","<div class='aboutBlock'>Gregor is...</div>"]
 }

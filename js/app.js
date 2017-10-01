@@ -10,6 +10,10 @@ Things to do:
 */
 document.addEventListener('DOMContentLoaded', function(event) {
   var showWhyBox = false;
+  // var newDiv = document.createElement('div');
+  // var body = document.querySelector('body');
+  var whyBox = document.querySelector('#whyBox');
+
   console.log('DOM fully loaded and parsed');
 
 
@@ -17,28 +21,26 @@ document.addEventListener('DOMContentLoaded', function(event) {
     // parse json first
     function processJson(jsonData) {
       console.log('reading JSON, sir');
-      var html = '';
+      var html = '<div class=\'inner\'>';
       for (var e in jsonData) {
         for (var i = 0; i < jsonData[e].length; i++) {
           html += jsonData[e][i];
           console.log(html);
         }
       }
+      html += '</div>';
       return html;
     }
 
     console.log('building new div, sir');
     var newDiv = document.createElement('div');
+    var body = document.querySelector('body');
     newDiv.setAttribute('id', idName);
     newDiv.innerHTML = processJson(jsonData);
-    document.querySelector('body').appendChild(newDiv);
+    // document.querySelector('body').appendChild(newDiv);
+    body.insertBefore( newDiv, body.firstChild );
   }
 
-  document.querySelector('.close').addEventListener('click', function(event) {
-    showWhyBox = false;
-    document.querySelector('#whyBox').removeChild();
-  });
-  
   document.querySelector('nav a').addEventListener('click', function(){
 
 
@@ -57,6 +59,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
           // document.querySelector('body').appendChild(newDiv);
           makeNewDiv(whyBoxData,'whyBox');
           showWhyBox = true;
+          document.querySelector('.close').addEventListener('click', function(event) {
+            showWhyBox = false;
+            document.querySelector('body').removeChild(document.querySelector('#whyBox'));
+          });
+          document.querySelector('#whyBox').addEventListener('click', function(e) {
+          // click on background  
+          });
         } else {
           console.log('no data');
         }
