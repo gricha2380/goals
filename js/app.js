@@ -11,14 +11,53 @@ Things to do:
 document.addEventListener('DOMContentLoaded', function(event) {
   var showWhyBox = false;
   console.log('DOM fully loaded and parsed');
+
+  function processJson(jsonData) {
+    console.log('building table data, sir');
+    var html = '';
+    for (var e in jsonData) {
+      for (var i = 0; i < jsonData[e].length; i++) {
+        html += jsonData[e][i];
+        console.log(html);
+      }
+    }
+    return html;
+  }
+
   document.querySelector('nav a').addEventListener('click', function(){
-    console.log('clicked');
+
+
     if (!showWhyBox) {
-      var newDiv = document.createElement('div');
-      newDiv.setAttribute('id', 'whyBox');
-      document.querySelector('body').appendChild(newDiv);
-      showWhyBox = true;
+      console.log('clicked');
+      var xmlhttp = new XMLHttpRequest();
+      var url = '../data/whyBox.json';
+
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var whyBoxData = JSON.parse(this.responseText);
+          // makeDiv(whyBoxData);
+          var newDiv = document.createElement('div');
+          newDiv.setAttribute('id', 'whyBox');
+          newDiv.innerHTML = processJson(whyBoxData);
+          document.querySelector('body').appendChild(newDiv);
+          showWhyBox = true;
+        } else {
+          console.log('no data');
+        }
+      };
+      xmlhttp.open('GET', url, true);
+      xmlhttp.send();
     }
 
-  });
-});
+  }); // end onclick
+
+  function makeDiv(divData) {
+    var newDiv = document.createElement('div');
+    newDiv.setAttribute('id', 'whyBox');
+    document.querySelector('body').appendChild(newDiv);
+    showWhyBox = true;
+    return divData;
+  }
+
+
+}); // end document ready
