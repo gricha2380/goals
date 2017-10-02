@@ -59,41 +59,58 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
   }
 
+  // Learn More modal
   document.querySelector('nav a').addEventListener('click', function(){
 
-    // if box variable is set to false
+    // only continue if hide flag is disabled
     if (!showWhyBox) {
       console.log('clicked');
+      // new ajax request
       var xmlhttp = new XMLHttpRequest();
+      // local JSON path
       var url = 'data/whyBox.json';
 
       // AJAX request to load modal content
       xmlhttp.onreadystatechange = function() {
+        // if data is fetched successfully
         if (this.readyState == 4 && this.status == 200) {
+          // read values as JSON and store in local variable
           var whyBoxData = JSON.parse(this.responseText);
+
           // makeDiv(whyBoxData);
           // var newDiv = document.createElement('div');
           // newDiv.setAttribute('id', 'whyBox');
           // newDiv.innerHTML = processJson(whyBoxData);
           // document.querySelector('body').appendChild(newDiv);
+
+          // my function for creating new element, populated with page data
           makeNewDiv(whyBoxData,'whyBox','modal');
+          // disable hide flag
           showWhyBox = true;
+          // if user clicks the close button
           document.querySelector('.close').addEventListener('click', function(event) {
             // note: I can turn this into a function
+            // enable hide flag
             showWhyBox = false;
+            // delete the element & remove modal class from body
             document.querySelector('body').removeChild(document.querySelector('#whyBox'));
             document.querySelector('body').classList.toggle('modal');
           });
+          // allow modal to be closed from clicking on background
           document.querySelector('#whyBox').addEventListener('click', function(e) {
           // click on background?
           });
-        } else {
+        }
+        // if there's an error retrieving the data
+        else {
           console.log('no data');
+          feedbackMessage('Error: No data was found for the modal');
         }
       };
+      // initiate AJAX request
       xmlhttp.open('GET', url, true);
       xmlhttp.send();
-    }
+    } // end show whybox
 
   }); // end onclick
 
@@ -104,22 +121,25 @@ document.addEventListener('DOMContentLoaded', function(event) {
     if (document.querySelector('#yourGoal').value=='') {
       feedbackMessage('Please type a goal before sending');
     }
-    // if goal is provided, capture values
+    // if goal is provided, proceed to capture values
     else {
       // if no name is provided, use Annonymous as value
       if (document.querySelector('#userName').value=='') {
         goalArray.push({
-          'goal':document.querySelector('#yourGoal').value,
-          'author':'Annonymous'});
+          'goal' : document.querySelector('#yourGoal').value,
+          'author' : 'Annonymous',
+          'date' : formatDate()});
       } else {
         // grab values from input fields, save to array
         goalArray.push({
           'goal':document.querySelector('#yourGoal').value,
-          'author':document.querySelector('#userName').value});
+          'author':document.querySelector('#userName').value,
+          'date' : formatDate()});
       }
 
       // send array to localStorage function
       saveLocalStorage(goalArray);
+      // blank out the fields and inform the user
       document.querySelector('#yourGoal').value = '';
       document.querySelector('#userName').value = '';
       feedbackMessage('Thanks for subitting!');
@@ -140,12 +160,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
     return JSON.parse(window.localStorage.getItem('goals'));
   }
 
+  // function for parsing goal object and dispalying in goalList
   function populateGoals() {
     //console.log(goalArray);
+    // arrays for the opening & closing of all necessary HTML elements
     var goalUnit = ['<div class=\'goalUnit\'>','</div>'];
     var goalDiv = ['<div class=\'goal\'>','</div>'];
     var goalDate = ['<div class=\'date\'>','</div>'];
     var goalName = ['<div class=\'name\'>','</div>'];
+    // loop to print out all results in the localStorage object
     for (var e in goalArray) {
       document.querySelector('.goalBody').innerHTML +=
         goalUnit[0]+goalDiv[0]+goalArray[e]['goal']+goalDiv[1]
@@ -160,8 +183,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
       document.querySelector('.goalCount').innerHTML = '0';
     }
 
-  }
+  } // end populateGoals
 
+  // handy function for displaying messages in feedback box & removing it after x seconds
   function feedbackMessage(message) {
     document.querySelector('.feedback').innerHTML = message;
     setTimeout(function() {
@@ -170,5 +194,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }, 3000);
   }
 
+  // format date stamp
+  function formatDate() {
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    var d = new Date();
+    var dateNow = d.getDate();
+    var monthNow = d.getMonth();
+    var yearNow = d.getFullYear();
+    return months[monthNow] +' '+ dateNow + ', ' + yearNow +' ';
+  }
 
 }); // end document ready
