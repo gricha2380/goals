@@ -3,7 +3,7 @@ body {
   background: #919B9D;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  font-weight: 800;
+  font-weight: 200;
   letter-spacing: .05em;
   word-spacing: .02em;
   line-height: 1.5em;
@@ -160,7 +160,7 @@ nav a:hover {
   padding: 20px;
   left: calc(50% - 250px);
   top: 20px;
-  height: 300px;
+  /*height: 500px;*/
   width: 500px;
   background: rgba(0, 0, 0, 0.85);
   color: white;
@@ -203,5 +203,6 @@ nav a:hover {
 
 .goalBody {
   max-height: 300px;
-  overflow: scroll;
+  overflow: auto;
+  min-height: 80px;
 }

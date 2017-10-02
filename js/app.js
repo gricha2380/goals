@@ -1,16 +1,14 @@
 'use strict'; // no sloppy JS habits allowed here.
 /*
 Things to do:
-	* 'Why' button should create div element with class whyBox. CSS will style it properly as a modal.
-	* 'Why' button will be event listener that does local ajax call to JSON file
-	* 'Why' modal will have link to github repo, explination about 201 course, thank you to Rachel
+	* Clean up commented code
+	* Add even more functions to keep things DRY
 	* Global goals will call results from Google sheets JSON file
-	* 'My Goals' will use local storage
-	* Field validation for 'Send' button via event handler
 */
 document.addEventListener('DOMContentLoaded', function(event) {
   var showWhyBox = false;
   var goalArray; // initialize local array for holding goals
+  displayDefaultGoals(); // start by showing Gregor's goals json
   // if existing values are in localhost, use them
   if (window.localStorage.getItem('goals')) {
     console.log('Found existing localstorage values.',JSON.parse(window.localStorage.getItem('goals')));
@@ -30,13 +28,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   console.log('DOM fully loaded and parsed');
 
-
+  // repeateble function for creating different types of elements and populating with json input
   function makeNewDiv(jsonData, idName, modal) {
     // parse json first
     function processJson(jsonData) {
       console.log('reading JSON, sir');
+      // add inner container to hold new content
       var html = '<div class=\'inner\'>';
+      // Each section is held in an array. loop through JSON and grab each value seppearted by array
       for (var e in jsonData) {
+        // find the length of the array and append it to the page one at a time
         for (var i = 0; i < jsonData[e].length; i++) {
           html += jsonData[e][i];
           console.log(html);
@@ -45,17 +46,18 @@ document.addEventListener('DOMContentLoaded', function(event) {
       html += '</div>';
       return html;
     }
-
+    // build new div element
     console.log('building new div, sir');
     var newDiv = document.createElement('div');
     var body = document.querySelector('body');
+    // assign given id value
     newDiv.setAttribute('id', idName);
-    newDiv.innerHTML = processJson(jsonData);
-    // document.querySelector('body').appendChild(newDiv);
-    body.insertBefore( newDiv, body.firstChild );
+    newDiv.innerHTML = processJson(jsonData); // use my fancy json processor above
+    // document.querySelector('body').appendChild(newDiv); // only append if I want it as the last element
+    body.insertBefore( newDiv, body.firstChild ); // add as 1st thing inside body
     // if modal paramater was passed, set document class
     if (modal) {
-      body.classList.toggle('modal');
+      body.classList.toggle('modal'); // apply modal tag to body for styling
     }
   }
 
@@ -143,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       document.querySelector('#yourGoal').value = '';
       document.querySelector('#userName').value = '';
       feedbackMessage('Thanks for subitting!');
-      populateGoals();
+      populateGoals();  // fill page with goal values
     } // end capture value else statement
   }); // end send button event listener
 
@@ -162,7 +164,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   // function for parsing goal object and dispalying in goalList
   function populateGoals() {
-    //console.log(goalArray);
+    toggleActive('.communityGoals');
+    // reset value of goalBody
+    document.querySelector('.goalBody').innerHTML = '';
     // arrays for the opening & closing of all necessary HTML elements
     var goalUnit = ['<div class=\'goalUnit\'>','</div>'];
     var goalDiv = ['<div class=\'goal\'>','</div>'];
@@ -176,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         +goalName[0]+goalArray[e]['author']+goalName[1]+goalUnit[1];
     }
     // set goal counter to current goal total
-    if (goalArray.length>1) {
+    if (goalArray.length>0) {
       document.querySelector('.goalCount').innerHTML = goalArray.length;
     } else {
       console.log(goalArray.length);
@@ -204,4 +208,72 @@ document.addEventListener('DOMContentLoaded', function(event) {
     return months[monthNow] +' '+ dateNow + ', ' + yearNow +' ';
   }
 
+  // capture click on gregor's goals
+  document.querySelector('.defaultGoals').addEventListener('click',function(event){
+    displayDefaultGoals();
+  }); // end gregor goals listener
+
+  // heavy lifying to show default goals json
+  function displayDefaultGoals(){
+    // sets active class for current tab only
+    toggleActive('.defaultGoals');
+    // pull default goals from json
+    var defaultGoals;
+    console.log('clicked default goals');
+    // new ajax request
+    var defaultAjax = new XMLHttpRequest();
+    // local JSON path
+    var url = 'data/defaultGoals.json';
+
+    // AJAX request to load modal content
+    defaultAjax.onreadystatechange = function() {
+      // if data is fetched successfully
+      if (this.readyState == 4 && this.status == 200) {
+        // read values as JSON and store in local variable
+        defaultGoals = JSON.parse(this.responseText);
+        populateDefaultGoals(defaultGoals);
+      } // end if
+
+    }; // end AJAX
+    // initiate AJAX request
+    defaultAjax.open('GET', url, true);
+    defaultAjax.send();
+
+    function populateDefaultGoals(goalArray) {
+      console.log('default goal array has this',goalArray);
+      // reset value of goalBody
+      document.querySelector('.goalBody').innerHTML = '';
+      var goalUnit = ['<div class=\'goalUnit\'>','</div>'];
+      var goalDiv = ['<div class=\'goal\'>','</div>'];
+      var goalDate = ['<div class=\'date\'>','</div>'];
+      var goalName = ['<div class=\'name\'>','</div>'];
+      // loop to print out all results in the localStorage object
+      for (var e in goalArray) {
+        document.querySelector('.goalBody').innerHTML +=
+          goalUnit[0]+goalDiv[0]+goalArray[e]['goal']+goalDiv[1]
+          +goalDate[0]+goalArray[e]['date']+goalDate[1]
+          +goalName[0]+goalArray[e]['author']+goalName[1]+goalUnit[1];
+      }
+      // set goal counter to current total
+      document.querySelector('.goalCount').innerHTML = goalArray.length;
+    } // end populateDefaultGoals
+  }
+  // capture click on community goals
+  document.querySelector('.communityGoals').addEventListener('click', function(){
+    console.log('clicked on communityGoals');
+    populateGoals();  // fill page with goal values
+    // sets active class for current tab only
+    toggleActive('.communityGoals');
+  });
+
+  // handy function for removing all classes applied to a selection of elements
+  function toggleActive(currentTab) {
+    console.log(currentTab);
+    var x = document.querySelectorAll('.goalFilters span');
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove('active');
+    }
+    //document.querySelectorAll('.goalFilters span').classList.remove('active');
+    document.querySelector('.goalFilters span'+currentTab).classList.add('active');
+  }
 }); // end document ready

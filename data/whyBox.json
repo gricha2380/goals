@@ -3,5 +3,6 @@
   "title" : ["<div class='aboutProject title'>About this Project</div>"],
   "description" : ["<div class='projectContent'>This project was built to demonstrate my ability to store user input and subsequently display new content to the user in a manner that's retrievable/viewable after a screen refresh. It was designed from scratch using CSS, HTML and vanilla Javascript. </div>"],
   "source" : ["<a href='https://github.com/gricha2380/goals/tree/gh-pages' target='_blank' class='title'>View Project Repo</a>"],
-  "me" : ["<div class='aboutMe title'>About Me</div>","<div class='aboutBlock'>My name's Gregor Richardson. I'm an aspiring frontend Javascript developer. I like code, I like people, and I want to make the world a better place.</div>"]
+  "me" : ["<div class='aboutMe title'>About Me</div>","<div class='aboutBlock'>My name's Gregor Richardson. I'm an aspiring frontend Javascript developer. I like code, I like people, and I want to make the world a better place.</div>"],
+  "thanks" : ["<div class='title'>Special Thanks</div>","<div class='aboutBlock'>My gratitude goes out to Rachel Burke for her encouragement.</div>"]
 }
